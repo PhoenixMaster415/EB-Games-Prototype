@@ -1,0 +1,356 @@
+{
+  "nintendo": [
+    {
+      "id": "nin-1",
+      "title": "Mario Kart",
+      "platform": "Nintendo",
+      "price": 79.99,
+      "genre": "Racing",
+      "rating": "E for Everyone",
+      "image": "Nintendo Mario Kart 8 Deluxe.jpg",
+      "description": "Hit the road with Mario, Luigi, and friends in the ultimate multiplayer kart racing experience.",
+      "stock": 15,
+      "maxStock": 15,
+      "inventory": "15/15"
+    },
+    {
+      "id": "nin-2",
+      "title": "Super Mario",
+      "platform": "Nintendo",
+      "price": 79.99,
+      "genre": "Platformer",
+      "rating": "E for Everyone",
+      "image": "New Super Mario Bros. U Deluxe Switch.jpg",
+      "description": "Join Mario on a massive, globe-trotting 3D adventure to save Princess Peach.",
+      "stock": 15,
+      "maxStock": 15,
+      "inventory": "15/15"
+    },
+    {
+      "id": "nin-3",
+      "title": "Street Fighter 6",
+      "platform": "Nintendo",
+      "price": 69.99,
+      "genre": "Fighting",
+      "rating": "T for Teen",
+      "image": "Street Fighter 30th Anniversary Collection.jpg",
+      "description": "Experience the next evolution of Street Fighter with redesigned world tour combat and classic brawls.",
+      "stock": 6,
+      "maxStock": 15,
+      "inventory": "6/15"
+    }
+  ],
+  "xbox": [
+    {
+      "id": "xb-1",
+      "title": "Halo Infinite",
+      "platform": "Xbox Series X",
+      "price": 79.99,
+      "genre": "First-Person Shooter",
+      "rating": "T for Teen",
+      "image": "Halo Infinite Xbox Series X.jpg",
+      "description": "The legendary Master Chief returns to explore the Zeta Halo ring and battle the Banished on Xbox Series X.",
+      "stock": 15,
+      "maxStock": 15,
+      "inventory": "15/15"
+    },
+    {
+      "id": "xb-2",
+      "title": "Minecraft",
+      "platform": "Xbox Series X",
+      "price": 29.99,
+      "genre": "Sandbox / Adventure",
+      "rating": "E10+ for Everyone 10+",
+      "image": "Minecraft Xbox Series X.jpg",
+      "description": "Build anything you can imagine, mine for resources, and survive against nocturnal mobs on Xbox Series X.",
+      "stock": 13,
+      "maxStock": 15,
+      "inventory": "13/15"
+    },
+    {
+      "id": "xb-3",
+      "title": "Star Wars Jedi Survivor",
+      "platform": "Xbox Series X",
+      "price": 79.99,
+      "genre": "Action / Adventure",
+      "rating": "T for Teen",
+      "image": "Star Wars Jedi Survivor Xbox Series X.jpg",
+      "description": "Pick up your lightsaber and fight against the Empire across galactic worlds.",
+      "stock": 15,
+      "maxStock": 15,
+      "inventory": "15/15"
+    },
+    {
+      "id": "xb-4",
+      "title": "Gears of War: E-Day",
+      "platform": "Xbox Series X",
+      "price": 79.99,
+      "genre": "Action / Shooter",
+      "rating": "M for Mature",
+      "image": "Gears of War E-Day.jpg",
+      "description": "Experience the emergence of the Locust Horde through the eyes of Marcus Fenix and Dom Santiago on Emergence Day.",
+      "stock": 15,
+      "maxStock": 15,
+      "inventory": "15/15"
+    }
+  ],
+  "playstation": [
+    {
+      "id": "ps-1",
+      "title": "Spider-Man",
+      "platform": "PlayStation",
+      "price": 79.99,
+      "genre": "Action / Adventure",
+      "rating": "T for Teen",
+      "image": "Spiderman 2 PS5.jpg",
+      "description": "Swing through Marvel's New York City as Peter Parker facing iconic supervillains.",
+      "stock": 15,
+      "maxStock": 15,
+      "inventory": "15/15"
+    },
+    {
+      "id": "ps-2",
+      "title": "The Last of Us",
+      "platform": "PlayStation",
+      "price": 89.99,
+      "genre": "Action / Survival",
+      "rating": "M for Mature",
+      "image": "the last of us part 2.jpg",
+      "description": "Experience the emotional, post-pandemic story of Joel and Ellie crossing a ruined America.",
+      "stock": 13,
+      "maxStock": 15,
+      "inventory": "13/15"
+    },
+    {
+      "id": "ps-3",
+      "title": "Street Fighter 6",
+      "platform": "PlayStation",
+      "price": 69.99,
+      "genre": "Fighting",
+      "rating": "T for Teen",
+      "image": "Street fighter 6.jpg",
+      "description": "Capcom's premier fighting game franchise returns with next-gen graphics and deep fighting mechanics.",
+      "stock": 6,
+      "maxStock": 15,
+      "inventory": "6/15"
+    },
+    {
+      "id": "ps-4",
+      "title": "Ghost of Tsushima",
+      "platform": "PlayStation",
+      "price": 79.99,
+      "genre": "Action / Adventure",
+      "rating": "M for Mature",
+      "image": "Ghost of Tsushima.jpg",
+      "description": "Explore feudal Japan as Jin Sakai and fight to protect Tsushima from invading forces.",
+      "stock": 15,
+      "maxStock": 15,
+      "inventory": "15/15"
+    },
+    {
+      "id": "ps-5",
+      "title": "God of War Ragnarök",
+      "platform": "PlayStation",
+      "price": 79.99,
+      "genre": "Action / Adventure",
+      "rating": "M for Mature",
+      "image": "God of War Ragnarok.jpg",
+      "description": "Embark on an epic journey with Kratos and Atreus as they face the might of the Norse gods.",
+      "stock": 0,
+      "maxStock": 15,
+      "inventory": "0/15"
+    }
+  ],
+  "accessories": [
+    {
+      "id": "acc-1",
+      "title": "PS5 Pulse Elite Wireless Headset",
+      "platform": "PlayStation",
+      "price": 149.99,
+      "genre": "Wireless Headset",
+      "rating": "In Stock",
+      "image": "PS5 Pulse Elite Wireless.jpg",
+      "description": "Experience immersive gaming audio with the PS5 Pulse Elite Wireless Headset."
+    },
+    {
+      "id": "acc-2",
+      "title": "DualSense PS5 Charging Station",
+      "platform": "PlayStation",
+      "price": 129.99,
+      "genre": "Charging Dock",
+      "rating": "In Stock",
+      "image": "DualSense PS5 charging station.jpg",
+      "description": "Charge up to two DualSense wireless controllers simultaneously with the DualSense PS5 Charging Station."
+    },
+    {
+      "id": "acc-3",
+      "title": "PS5 Stand & Cooling Station",
+      "platform": "PlayStation",
+      "price": 39.99,
+      "genre": "Charging Dock",
+      "rating": "In Stock",
+      "image": "Cooling Station with LED Controller Charging Station for PlayStation 5 Console, Slim and Pro.jpg",
+      "description": "PS5, PS5 Slim, and PS5 Pro stand and cooling station with LED controller charging station for PlayStation 5 console, controller charger, and 3-level cooling fan."
+    },
+    {
+      "id": "acc-11",
+      "title": "PS5 5TB External Hard Drive",
+      "platform": "PlayStation",
+      "price": 129.99,
+      "genre": "External Storage",
+      "rating": "In Stock",
+      "image": "PS5 External HDD USB Hard drive.jpg",
+      "description": "Expand your PS5 game storage with a 5TB external hard drive."
+    },
+    {
+      "id": "acc-12",
+      "title": "PS5 Charging Cable",
+      "platform": "PlayStation",
+      "price": 19.99,
+      "genre": "Charging Cable",
+      "rating": "In Stock",
+      "image": "PS5 Controller Charger.jpg",
+      "description": "High-quality charging cable for charging and connecting PlayStation 5 controllers."
+    },
+    {
+      "id": "acc-4",
+      "title": "Xbox Wireless Controller",
+      "platform": "Xbox",
+      "price": 74.99,
+      "genre": "Wireless Controller",
+      "rating": "In Stock",
+      "image": "",
+      "description": "Experience modernized textured grips, hybrid D-pad, and refined geometry for Xbox Series X and PC."
+    },
+    {
+      "id": "acc-5",
+      "title": "Xbox Wireless Headset",
+      "platform": "Xbox",
+      "price": 129.99,
+      "genre": "Wireless Headset",
+      "rating": "In Stock",
+      "image": "",
+      "description": "Experience high-quality audio with low-latency, 100% wireless connection to your Xbox console."
+    },
+    {
+      "id": "acc-6",
+      "title": "Xbox Rechargeable Battery + USB-C",
+      "platform": "Xbox",
+      "price": 29.99,
+      "genre": "Battery & Cable",
+      "rating": "In Stock",
+      "image": "",
+      "description": "Keep the action going with the Xbox Rechargeable Battery and included 9-foot USB-C cable."
+    },
+    {
+      "id": "acc-18",
+      "title": "Rechargeable Xbox Controller Battery Pack",
+      "platform": "Xbox",
+      "price": 24.99,
+      "genre": "Battery & Power",
+      "rating": "In Stock",
+      "image": "Rechargeable Xbox Controller Battery Pack.jpg",
+      "description": "High-capacity rechargeable battery pack designed for continuous gameplay with Xbox Series X|S wireless controllers."
+    },
+    {
+      "id": "acc-19",
+      "title": "Seagate Game Drive for Xbox 4TB External Hard Drive",
+      "platform": "Xbox",
+      "price": 149.99,
+      "genre": "External Storage",
+      "rating": "In Stock",
+      "image": "Seagate Game Drive for Xbox 4TB External Hard Drive.jpg",
+      "description": "High-speed 4TB external hard drive officially licensed for Xbox Series X|S and Xbox One storage expansion."
+    },
+    {
+      "id": "acc-20",
+      "title": "Xbox Controller Stand",
+      "platform": "Xbox",
+      "price": 19.99,
+      "genre": "Display Stand",
+      "rating": "In Stock",
+      "image": "",
+      "description": "Sleek and sturdy display stand custom-molded to showcase and store your Xbox wireless controller."
+    },
+    {
+      "id": "acc-7",
+      "title": "Nintendo Switch Pro Controller",
+      "platform": "Nintendo",
+      "price": 89.99,
+      "genre": "Pro Controller",
+      "rating": "In Stock",
+      "image": "",
+      "description": "Premium controller featuring motion controls, HD rumble, built-in amiibo functionality, and ergonomic grip."
+    },
+    {
+      "id": "acc-8",
+      "title": "Joy-Con Charging Grip",
+      "platform": "Nintendo",
+      "price": 39.99,
+      "genre": "Charging Grip",
+      "rating": "In Stock",
+      "image": "",
+      "description": "Combine your left and right Joy-Con into one comfortable controller while keeping them charged during gameplay."
+    },
+    {
+      "id": "acc-9",
+      "title": "SanDisk 128GB MicroSDXC Card",
+      "platform": "Nintendo",
+      "price": 34.99,
+      "genre": "Memory Storage",
+      "rating": "In Stock",
+      "image": "",
+      "description": "Officially licensed memory card for Nintendo Switch providing dependable, high-performance storage."
+    },
+    {
+      "id": "acc-10",
+      "title": "RIG 300 PRO HC Universal Gaming Headset",
+      "platform": "Multi-Platform",
+      "price": 49.99,
+      "genre": "Wired Gaming Headset",
+      "rating": "In Stock",
+      "image": "RIG 300 PRO HC Universal Gaming Headset.jpg",
+      "description": "High-quality 40mm over-ear speakers with flip-to-mute mic compatible with PlayStation, Xbox, and Nintendo Switch."
+    },
+    {
+      "id": "acc-14",
+      "title": "USB-C Gaming Charging Cable",
+      "platform": "Multi-Platform",
+      "price": 14.99,
+      "genre": "Charging Cable",
+      "rating": "In Stock",
+      "image": "",
+      "description": "Durable braided 10-foot USB-C fast charging cable compatible with all modern gaming platforms."
+    },
+    {
+      "id": "acc-15",
+      "title": "Controller Thumb Grips",
+      "platform": "Multi-Platform",
+      "price": 12.99,
+      "genre": "Controller Accessories",
+      "rating": "In Stock",
+      "image": "",
+      "description": "High-traction silicone analog thumb grips designed for PlayStation, Xbox, and Switch controllers."
+    },
+    {
+      "id": "acc-16",
+      "title": "Gaming Keyboard",
+      "platform": "Multi-Platform",
+      "price": 69.99,
+      "genre": "Mechanical Keyboard",
+      "rating": "In Stock",
+      "image": "",
+      "description": "RGB backlit mechanical gaming keyboard offering tactile switches and multi-platform compatibility."
+    },
+    {
+      "id": "acc-17",
+      "title": "Gaming Mouse",
+      "platform": "Multi-Platform",
+      "price": 39.99,
+      "genre": "Optical Mouse",
+      "rating": "In Stock",
+      "image": "",
+      "description": "Precision high-DPI optical gaming mouse with programmable buttons and dynamic RGB lighting."
+    }
+  ]
+}

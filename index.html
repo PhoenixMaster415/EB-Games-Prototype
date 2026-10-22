@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EB Games Prototype - Contemporary Web Design 2</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Top Notification / Toast Alert -->
+  <div id="toast-notification" class="toast hidden" role="status" aria-live="polite">
+    <span class="toast-icon">✓</span>
+    <span id="toast-message">Item added to cart!</span>
+  </div>
+
+  <!-- Header (Based on Sketch 1) -->
+  <header class="site-header">
+    <div class="header-container">
+
+      <!-- Left: Hamburger Menu & EB Games Branding -->
+      <div class="header-left">
+        <button id="hamburger-btn" class="icon-btn" aria-label="Open Navigation Menu" title="Menu">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+        <a href="#" id="brand-logo" class="brand-logo" title="EB Games Home">
+          <span class="logo-eb">EB</span><span class="logo-games">Games</span>
+        </a>
+      </div>
+
+      <!-- Center: Wide Search Bar with Search Icon -->
+      <div class="header-search">
+        <form id="search-form" class="search-form" role="search" onsubmit="return false;">
+          <input type="search" id="search-input" placeholder="Search games, consoles, collectables..."
+            aria-label="Search EB Games" autocomplete="off">
+          <button type="submit" id="search-btn" class="search-submit-btn" aria-label="Submit Search">
+            <svg class="search-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </button>
+        </form>
+      </div>
+
+      <!-- Right: Utility Icons (Location, Language, Support, Account, Cart) -->
+      <div class="header-icons">
+
+        <!-- Location Pin -->
+        <button id="icon-location" class="icon-btn" title="Find Store" aria-label="Find Store Location">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+        </button>
+
+        <!-- Language / Globe -->
+        <button id="icon-language" class="icon-btn" title="Select Language" aria-label="Language Selector">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          </svg>
+        </button>
+
+        <!-- Customer Support / Headphones -->
+        <button id="icon-support" class="icon-btn" title="Customer Support" aria-label="Customer Support">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+            <path
+              d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z">
+            </path>
+          </svg>
+        </button>
+
+        <!-- User Account -->
+        <button id="icon-account" class="icon-btn" title="My Account" aria-label="User Account">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </button>
+
+        <!-- Shopping Cart with Badge -->
+        <button id="icon-cart" class="icon-btn cart-btn" title="View Shopping Cart" aria-label="Shopping Cart">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span id="cart-count-badge" class="cart-badge">0</span>
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Slide-out Hamburger Menu (Mobile/Desktop Friendly) -->
+  <aside id="side-menu" class="side-menu" aria-hidden="true">
+    <div class="side-menu-header">
+      <span class="side-menu-title">EB Games Menu</span>
+      <button id="close-menu-btn" class="close-menu-btn" aria-label="Close Menu">&times;</button>
+    </div>
+    <nav class="side-menu-nav">
+      <ul>
+        <li><a href="#" class="nav-item-home active">Home</a></li>
+        <li><a href="#" class="nav-item-games">Games</a></li>
+        <li><a href="#" class="nav-item-cat" data-category="Consoles">Consoles</a></li>
+        <li><a href="#" class="nav-item-cat" data-category="Gift Cards">Gift Cards</a></li>
+        <li><a href="#" class="nav-item-cat" data-category="Accessories">Accessories</a></li>
+        <li><a href="#" class="nav-item-cat" data-category="Collectables">Collectables</a></li>
+        <li><a href="#" class="nav-item-cat" data-category="Pre-order">Pre-order</a></li>
+        <li><a href="#" class="nav-item-cat" data-category="Franchises">Franchises</a></li>
+        <li><a href="#" class="nav-item-cat" data-category="Flyers">Flyers</a></li>
+        <li class="menu-divider"></li>
+        <li><a href="#" id="menu-cart-link">View Cart (<span class="menu-cart-count">0</span>)</a></li>
+        <li><a href="#" id="menu-help-link">Help & Support</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <div id="menu-backdrop" class="menu-backdrop"></div>
+
+  <!-- General Info Modal for Header Icons (Location, Language, Support, Account) -->
+  <div id="info-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modal-title">Notification</h3>
+        <button id="modal-close-btn" class="close-modal-btn" aria-label="Close dialog">&times;</button>
+      </div>
+      <div id="modal-body" class="modal-body">
+        <!-- Dynamic message inserted by JavaScript -->
+      </div>
+      <div class="modal-footer">
+        <button id="modal-ok-btn" class="btn-primary">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Website Content Area -->
+  <main id="main-content" class="main-content">
+
+    <!-- ==============================================
+         1. HOMEPAGE VIEW (Follows Sketch 1)
+         ============================================== -->
+    <section id="homepage-view" class="view-section active">
+      <!-- Dynamic Background Slideshow -->
+      <div class="homepage-bg-slideshow" aria-hidden="true">
+        <div class="bg-slide bg-slide-1 active top-layer"></div>
+        <div class="bg-slide bg-slide-2"></div>
+        <div class="bg-slide bg-slide-3"></div>
+        <div class="bg-overlay"></div>
+      </div>
+
+      <div class="homepage-container">
+
+        <!-- Large Rectangular Navigation Buttons Grid (Reorganized into 4 Primary Categories) -->
+        <nav class="category-nav-grid" aria-label="Main Categories">
+
+          <!-- Primary Categories (Row 1: 4 Main Buttons) -->
+          <div class="nav-row primary-categories-row">
+            <button class="nav-rect-btn" id="btn-games" data-category="Games">
+              <svg class="cat-icon" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="9.5"></circle>
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M12 2.5a9.5 9.5 0 0 1 6.72 2.78"></path>
+                <path d="M12 21.5a9.5 9.5 0 0 1-6.72-2.78"></path>
+              </svg>
+              <span class="btn-text">Games</span>
+            </button>
+            <button class="nav-rect-btn" id="btn-accessories" data-category="Accessories">
+              <svg class="cat-icon" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+                <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
+              </svg>
+              <span class="btn-text">Accessories</span>
+            </button>
+            <button class="nav-rect-btn" id="btn-collectables" data-category="Collectibles">
+              <svg class="cat-icon" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                <path d="M4 4h16v5a8 8 0 0 1-16 0V4z"></path>
+                <path d="M12 17v4"></path>
+                <path d="M8 21h8"></path>
+              </svg>
+              <span class="btn-text">Collectibles</span>
+            </button>
+            <button class="nav-rect-btn" id="btn-other" data-category="Other" aria-expanded="false"
+              aria-controls="other-categories-subnav"
+              onclick="event.stopImmediatePropagation(); const sub = document.getElementById('other-categories-subnav'); const isClosed = (sub.style.display === 'none' || sub.style.display === ''); sub.style.display = isClosed ? 'grid' : 'none'; this.setAttribute('aria-expanded', isClosed); const icon = this.querySelector('.toggle-icon'); if (icon) icon.textContent = isClosed ? '▴' : '▾';">
+              <svg class="cat-icon" viewBox="0 0 24 24" width="26" height="26" fill="currentColor" aria-hidden="true">
+                <circle cx="5" cy="12" r="2.2"></circle>
+                <circle cx="12" cy="12" r="2.2"></circle>
+                <circle cx="19" cy="12" r="2.2"></circle>
+              </svg>
+              <span class="btn-text">Other <span class="toggle-icon">▾</span></span>
+            </button>
+          </div>
+
+          <!-- Secondary Categories (Contained in & Accessed via 'Other') -->
+          <div id="other-categories-subnav" class="nav-row secondary-categories-subnav"
+            style="display: none; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.25rem;">
+            <button class="nav-rect-btn" id="btn-consoles" data-category="Consoles">
+              <span class="btn-text">Consoles</span>
+            </button>
+            <button class="nav-rect-btn" id="btn-giftcards" data-category="Gift Cards">
+              <span class="btn-text">Gift Cards</span>
+            </button>
+            <button class="nav-rect-btn" id="btn-preorder" data-category="Pre-order">
+              <span class="btn-text">Pre-Order</span>
+            </button>
+            <button class="nav-rect-btn" id="btn-franchises" data-category="Franchises">
+              <span class="btn-text">Franchises</span>
+            </button>
+            <button class="nav-rect-btn" id="btn-flyers" data-category="Flyers">
+              <span class="btn-text">Flyers</span>
+            </button>
+          </div>
+
+        </nav>
+
+        <!-- Promotional Carousel (Directly below Category Navigation Row) -->
+        <section class="promo-carousel" aria-label="Promotions and Featured Offers">
+          <div class="carousel-track-wrapper">
+            <div class="carousel-track" id="promo-carousel-track">
+
+              <!-- Slide 1: Featured Game Promotion -->
+              <article class="carousel-slide active" aria-roledescription="slide" aria-label="1 of 3">
+                <div class="slide-content">
+                  <span class="slide-badge">Hot Pre-Order</span>
+                  <h2 class="slide-title">Gears of War: E-Day</h2>
+                  <p class="slide-desc">Experience the brutal emergence day in stunning fidelity on Xbox Series X|S. Pre-order now to secure day-one exclusive content.</p>
+                  <button class="slide-cta-btn" id="slide-cta-games">Explore Games</button>
+                </div>
+                <div class="slide-media">
+                  <img src="Gears of War E-Day.jpg" alt="Gears of War E-Day Featured Banner" onerror="this.onerror=null;this.src='images/Gears of War E-Day.jpg';">
+                </div>
+              </article>
+
+              <!-- Slide 2: Accessories Promotion -->
+              <article class="carousel-slide" aria-roledescription="slide" aria-label="2 of 3">
+                <div class="slide-content">
+                  <span class="slide-badge badge-accent">Featured Hardware</span>
+                  <h2 class="slide-title">Next-Gen Storage &amp; Accessories</h2>
+                  <p class="slide-desc">Expand your console storage and enhance your gameplay with high-speed SSD drives, dual controller chargers, and pro wireless gear.</p>
+                  <button class="slide-cta-btn" id="slide-cta-accessories">Shop Accessories</button>
+                </div>
+                <div class="slide-media">
+                  <img src="Seagate Game Drive for Xbox 4TB External Hard Drive.jpg" alt="Xbox and PlayStation Accessories Banner" onerror="this.onerror=null;this.src='images/Seagate Game Drive for Xbox 4TB External Hard Drive.jpg';">
+                </div>
+              </article>
+
+              <!-- Slide 3: Collectibles & Deals Promotion -->
+              <article class="carousel-slide" aria-roledescription="slide" aria-label="3 of 3">
+                <div class="slide-content">
+                  <span class="slide-badge">Exclusive Gear</span>
+                  <h2 class="slide-title">Collectibles &amp; Edge Rewards</h2>
+                  <p class="slide-desc">Discover limited-edition figurines, statues, and fan apparel. Earn double Edge Rewards points on all eligible prototype purchases today.</p>
+                  <button class="slide-cta-btn" id="slide-cta-collectibles">Browse Collectibles</button>
+                </div>
+                <div class="slide-media slide-media-placeholder">
+                  <div class="promo-wireframe-art">
+                    <span class="promo-wireframe-logo">EB</span>
+                    <span class="promo-wireframe-caption">Collectibles &amp; Fan Merchandise</span>
+                  </div>
+                </div>
+              </article>
+
+            </div>
+
+            <!-- Carousel Arrow Controls -->
+            <button class="carousel-arrow prev" id="carousel-prev-btn" aria-label="Previous slide">&#10094;</button>
+            <button class="carousel-arrow next" id="carousel-next-btn" aria-label="Next slide">&#10095;</button>
+          </div>
+
+          <!-- Carousel Dots / Indicators -->
+          <div class="carousel-indicators" role="tablist" aria-label="Slide indicators">
+            <button class="carousel-dot active" data-slide-index="0" role="tab" aria-selected="true" aria-label="Slide 1"></button>
+            <button class="carousel-dot" data-slide-index="1" role="tab" aria-selected="false" aria-label="Slide 2"></button>
+            <button class="carousel-dot" data-slide-index="2" role="tab" aria-selected="false" aria-label="Slide 3"></button>
+          </div>
+        </section>
+
+      </div>
+    </section>
+
+    <!-- ==============================================
+         2. GAMES VIEW (Follows Sketch 2)
+         ============================================== -->
+    <section id="games-view" class="view-section hidden">
+      <div class="games-container">
+
+        <!-- Back Navigation -->
+        <div class="view-breadcrumbs">
+          <button id="back-to-home-btn" class="link-btn">← Back to Homepage</button>
+        </div>
+
+        <!-- Wireframe Box titled "Game" with "Pick which one" -->
+        <div class="wireframe-card games-selector-card">
+          <h1 class="wireframe-title">Game</h1>
+          <h2 class="wireframe-subtitle">Pick which one</h2>
+
+          <!-- Platform Selection Buttons -->
+          <div class="platform-btn-group" role="group" aria-label="Platform selection">
+            <button class="platform-btn active" id="plat-playstation" data-platform="playstation" aria-pressed="true">
+              <span class="platform-btn-logo-wrap">
+                <img src="PlayStation Logo.png" alt="PlayStation Logo" class="platform-btn-logo" onerror="this.onerror=null;this.src='images/PlayStation Logo.png';">
+              </span>
+              <span class="platform-btn-divider" aria-hidden="true"></span>
+              <span class="platform-btn-text">PLAYSTATION</span>
+            </button>
+            <button class="platform-btn" id="plat-xbox" data-platform="xbox" aria-pressed="false">
+              <span class="platform-btn-logo-wrap">
+                <img src="Xbox Logo.png" alt="Xbox Logo" class="platform-btn-logo" onerror="this.onerror=null;this.src='images/Xbox Logo.png';">
+              </span>
+              <span class="platform-btn-divider" aria-hidden="true"></span>
+              <span class="platform-btn-text">XBOX</span>
+            </button>
+            <button class="platform-btn" id="plat-nintendo" data-platform="nintendo" aria-pressed="false">
+              <span class="platform-btn-logo-wrap">
+                <img src="Nintendo Logo.png" alt="Nintendo Logo" class="platform-btn-logo" onerror="this.onerror=null;this.src='images/Nintendo Logo.png';">
+              </span>
+              <span class="platform-btn-divider" aria-hidden="true"></span>
+              <span class="platform-btn-text">NINTENDO</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Selected Platform Title Banner -->
+        <div class="platform-header-row">
+          <h3 id="current-platform-heading" class="platform-heading">PlayStation Games</h3>
+          <span id="platform-item-count" class="platform-counter">5 games available</span>
+        </div>
+
+        <!-- Products List / Grid -->
+        <div id="products-grid" class="products-grid" aria-live="polite">
+          <!-- Populated dynamically by script.js from local JSON -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==============================================
+         ACCESSORIES VIEW (Replicates Games View Structure)
+         ============================================== -->
+    <section id="accessories-view" class="view-section hidden">
+      <div class="games-container">
+
+        <!-- Back Navigation -->
+        <div class="view-breadcrumbs">
+          <button id="accessories-back-to-home-btn" class="link-btn back-home-trigger">← Back to Homepage</button>
+        </div>
+
+        <!-- Wireframe Box titled "Accessories" with "Pick which one" -->
+        <div class="wireframe-card games-selector-card">
+          <h1 class="wireframe-title">Accessories</h1>
+          <h2 class="wireframe-subtitle">Pick which one</h2>
+
+          <!-- Platform / Filter Selection Buttons -->
+          <div class="platform-btn-group" role="group" aria-label="Accessories category filter">
+            <button class="platform-btn acc-filter-btn active" id="acc-filter-playstation" data-platform="playstation">
+              PlayStation
+            </button>
+            <button class="platform-btn acc-filter-btn" id="acc-filter-xbox" data-platform="xbox">
+              Xbox
+            </button>
+            <button class="platform-btn acc-filter-btn" id="acc-filter-nintendo" data-platform="nintendo">
+              Nintendo
+            </button>
+            <button class="platform-btn acc-filter-btn" id="acc-filter-multi" data-platform="multi-platform">
+              MULTI-PLATFORM
+            </button>
+          </div>
+        </div>
+
+        <!-- Selected Filter Title Banner -->
+        <div class="platform-header-row">
+          <h3 id="current-accessory-heading" class="platform-heading">PlayStation Accessories</h3>
+          <span id="accessory-item-count" class="platform-counter">5 accessories available</span>
+        </div>
+
+        <!-- Products List / Grid -->
+        <div id="accessories-grid" class="products-grid" aria-live="polite">
+          <!-- Populated dynamically by script.js from local JSON -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==============================================
+         3. CATEGORY PLACEHOLDER VIEW
+         ============================================== -->
+    <section id="category-placeholder-view" class="view-section hidden">
+      <div class="category-container">
+        <div class="view-breadcrumbs">
+          <button class="link-btn back-home-trigger">← Back to Homepage</button>
+        </div>
+        <div class="wireframe-card text-center">
+          <h2 id="category-view-title" class="wireframe-title">Category</h2>
+          <p class="category-desc">
+            This section is a prototype placeholder for your assignment. The interactive flow is fully implemented
+            inside the <strong>Games</strong> section!
+          </p>
+          <div class="placeholder-actions">
+            <button id="placeholder-to-games-btn" class="btn-primary">Go to Games Selection</button>
+            <button class="btn-secondary back-home-trigger">Return to Homepage</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         4. SHOPPING CART VIEW
+         ============================================== -->
+    <section id="cart-view" class="view-section hidden">
+      <div class="cart-container">
+        <div class="view-breadcrumbs">
+          <button id="cart-back-btn" class="link-btn">← Continue Shopping</button>
+        </div>
+
+        <div class="wireframe-card">
+          <div class="cart-title-row">
+            <h1 class="wireframe-title">Your Shopping Cart</h1>
+            <button id="clear-all-cart-btn" class="btn-remove-all" title="Remove all items from your cart">
+              Remove All from Cart
+            </button>
+          </div>
+
+          <div id="cart-empty-message" class="cart-empty hidden">
+            <p>Your shopping cart is currently empty.</p>
+            <button id="empty-cart-to-games-btn" class="btn-primary">Browse Games</button>
+          </div>
+
+          <div id="cart-content-wrapper" class="cart-content-wrapper">
+            <!-- Items Table/List -->
+            <div id="cart-items-list" class="cart-items-list">
+              <!-- Dynamically rendered cart rows -->
+            </div>
+
+            <!-- Cart Summary Calculation -->
+            <div class="cart-summary-card">
+              <h3 class="summary-title">Order Summary</h3>
+              <div class="summary-line">
+                <span>Subtotal:</span>
+                <span id="summary-subtotal">$0.00 CAD</span>
+              </div>
+              <div class="summary-line">
+                <span>Shipping:</span>
+                <span id="summary-shipping">$0.00 CAD</span>
+              </div>
+              <div class="summary-line">
+                <span>Estimated Taxes (13%):</span>
+                <span id="summary-tax">$0.00 CAD</span>
+              </div>
+              <div class="summary-line summary-total">
+                <span>Total:</span>
+                <span id="summary-total">$0.00 CAD</span>
+              </div>
+
+              <!-- Proceed to Checkout Button (Sketch 2) -->
+              <button id="proceed-to-checkout-btn" class="btn-checkout">
+                Proceed to Checkout →
+              </button>
+              <div class="shipping-info">
+                <h3>Shipping Information</h3>
+                <p>Orders are processed within 1–2 business days.</p>
+                <p>Standard shipping is available across Canada.</p>
+                <p>Shipping costs are calculated at checkout.</p>
+                <p>Customers receive tracking information once the order ships.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         5. CHECKOUT FLOW (Follows Sketch 2)
+         ============================================== -->
+    <section id="checkout-view" class="view-section hidden">
+      <div class="checkout-container">
+        <div class="view-breadcrumbs">
+          <button id="back-to-cart-btn" class="link-btn">← Back to Cart</button>
+        </div>
+
+        <div class="wireframe-card checkout-card">
+          <h1 class="wireframe-title">Checkout</h1>
+
+          <form id="checkout-form" novalidate>
+
+            <!-- Step 1: Payment Method Choice (Sketch 2) -->
+            <fieldset class="checkout-section">
+              <legend class="checkout-question">How would you like to pay?</legend>
+
+              <div class="payment-method-selector" role="radiogroup" aria-label="Payment method">
+                <button type="button" class="payment-choice-btn active" id="pay-credit" data-method="Credit Card">
+                  <span class="radio-indicator">●</span> Credit Card
+                </button>
+                <button type="button" class="payment-choice-btn" id="pay-debit" data-method="Debit Card">
+                  <span class="radio-indicator">○</span> Debit Card
+                </button>
+              </div>
+
+              <div class="payment-fields-box">
+                <div class="form-row">
+                  <div class="form-group flex-1">
+                    <label for="card-name">Cardholder Name</label>
+                    <input type="text" id="card-name" placeholder="e.g. Alex Mercer (or any random name)">
+                    <span class="error-msg" id="err-card-name"></span>
+                  </div>
+                  <div class="form-group flex-1">
+                    <label for="card-number">Credit / Debit Card Number</label>
+                    <input type="text" id="card-number" placeholder="e.g. 4500 0000 0000 0000 (or any number)">
+                    <span class="error-msg" id="err-card-number"></span>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group flex-1">
+                    <label for="card-expiry">Expiry Date</label>
+                    <input type="text" id="card-expiry" placeholder="e.g. 12/28">
+                    <span class="error-msg" id="err-card-expiry"></span>
+                  </div>
+                  <div class="form-group flex-1">
+                    <label for="card-cvv">Security Code (CVV)</label>
+                    <input type="text" id="card-cvv" placeholder="e.g. 123">
+                    <span class="error-msg" id="err-card-cvv"></span>
+                  </div>
+                </div>
+                <p class="field-hint">Testing Prototype: Enter any random person's name, card number, expiry date, and
+                  security code. Click Done to finish.</p>
+              </div>
+            </fieldset>
+
+            <!-- Step 2: Address Entry (Sketch 2) -->
+            <fieldset class="checkout-section">
+              <legend class="checkout-question">Type your address</legend>
+
+              <div class="form-group">
+                <label for="delivery-name">Full Recipient Name</label>
+                <input type="text" id="delivery-name" placeholder="e.g. Neil Smith (or any random name)">
+                <span class="error-msg" id="err-delivery-name"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="delivery-street">Street Address</label>
+                <input type="text" id="delivery-street" placeholder="e.g. 123 University Avenue (or any address)">
+                <span class="error-msg" id="err-delivery-street"></span>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group flex-2">
+                  <label for="delivery-city">City</label>
+                  <input type="text" id="delivery-city" placeholder="e.g. Toronto">
+                  <span class="error-msg" id="err-delivery-city"></span>
+                </div>
+                <div class="form-group flex-1">
+                  <label for="delivery-province">Province</label>
+                  <select id="delivery-province">
+                    <option value="ON" selected>Ontario (ON)</option>
+                    <option value="QC">Quebec (QC)</option>
+                    <option value="BC">British Columbia (BC)</option>
+                    <option value="AB">Alberta (AB)</option>
+                    <option value="MB">Manitoba (MB)</option>
+                    <option value="SK">Saskatchewan (SK)</option>
+                    <option value="NS">Nova Scotia (NS)</option>
+                    <option value="NB">New Brunswick (NB)</option>
+                    <option value="NL">Newfoundland & Labrador (NL)</option>
+                    <option value="PE">Prince Edward Island (PE)</option>
+                  </select>
+                  <span class="error-msg" id="err-delivery-province"></span>
+                </div>
+                <div class="form-group flex-1">
+                  <label for="delivery-postal">Postal Code</label>
+                  <input type="text" id="delivery-postal" placeholder="e.g. M5V 2T6">
+                  <span class="error-msg" id="err-delivery-postal"></span>
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- Checkout Summary Overview -->
+            <div class="checkout-order-review">
+              <div class="review-title">Order Total: <span id="checkout-total-amount" class="text-red">$0.00 CAD</span>
+              </div>
+              <div id="checkout-items-summary" class="review-items-text"></div>
+            </div>
+
+            <!-- Submit Order Action Buttons (Sketch 2) -->
+            <div class="checkout-actions">
+              <button type="submit" id="place-order-btn" class="btn-primary btn-large">
+                Done / Place Order
+              </button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         6. CONFIRMATION VIEW ("All Done" - Sketch 2)
+         ============================================== -->
+    <section id="confirmation-view" class="view-section hidden">
+      <div class="confirmation-container">
+
+        <div class="wireframe-card confirmation-card text-center">
+          <div class="success-badge-icon">✓</div>
+          <!-- Exact sketch title -->
+          <h1 class="wireframe-title confirmation-main-title">All Done!</h1>
+          <p class="confirmation-lead">Your EB Games order has been received and processed successfully.</p>
+
+          <div class="confirmation-details-box">
+            <div class="confirm-row">
+              <span class="confirm-label">Order Number:</span>
+              <strong id="confirm-order-id" class="confirm-value">#EB-948210</strong>
+            </div>
+            <div class="confirm-row">
+              <span class="confirm-label">Payment Method:</span>
+              <span id="confirm-payment-method" class="confirm-value">Credit Card</span>
+            </div>
+            <div class="confirm-row">
+              <span class="confirm-label">Cardholder Name:</span>
+              <span id="confirm-card-name" class="confirm-value">Demo User</span>
+            </div>
+            <div class="confirm-row">
+              <span class="confirm-label">Delivery To:</span>
+              <span id="confirm-address" class="confirm-value">123 University Ave, Toronto, ON</span>
+            </div>
+            <div class="confirm-row">
+              <span class="confirm-label">Total Amount:</span>
+              <strong id="confirm-total-amount" class="confirm-value text-red">$0.00 CAD</strong>
+            </div>
+
+            <div class="confirm-items-section">
+              <div class="confirm-items-heading">Items Ordered:</div>
+              <ul id="confirm-items-list" class="confirm-items-list">
+                <!-- Dynamically populated -->
+              </ul>
+            </div>
+          </div>
+
+          <div class="confirmation-actions">
+            <button id="order-complete-home-btn" class="btn-primary">
+              Return to Homepage
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==============================================
+       FOOTER (Follows Sketch 1)
+       ============================================== -->
+  <footer class="site-footer">
+    <div class="footer-container">
+
+      <!-- Left: Find Us with Facebook, Instagram, Twitter Links -->
+      <div class="footer-section footer-find-us">
+        <h3 class="footer-title">Find us</h3>
+        <div class="social-links-group">
+          <a href="#" class="social-btn" aria-label="Visit EB Games on Facebook"
+            onclick="alert('EB Games Facebook link clicked (Demo)'); return false;">
+            Facebook
+          </a>
+          <a href="#" class="social-btn" aria-label="Visit EB Games on Instagram"
+            onclick="alert('EB Games Instagram link clicked (Demo)'); return false;">
+            Instagram
+          </a>
+          <a href="#" class="social-btn" aria-label="Visit EB Games on Twitter"
+            onclick="alert('EB Games Twitter / X link clicked (Demo)'); return false;">
+            Twitter
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: Email Us with sketch email -->
+      <div class="footer-section footer-email-us">
+        <h3 class="footer-title">Email us</h3>
+        <p class="footer-email">
+          <a href="mailto:EBgamesbusiness@gmail.com" class="email-link">
+            EBgamesbusiness@gmail.com
+          </a>
+        </p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p class="copyright-text">
+        Contemporary Web Design 2 &bull; Mid-Fidelity Prototype &bull; Student Project
+      </p>
+    </div>
+  </footer>
+
+  <!-- Link script (checks js/script.js first, falls back to root script.js) -->
+  <script src="js/script.js" onerror="this.onerror=null;this.src='script.js';" defer></script>
+</body>
+
+</html>
